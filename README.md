@@ -1,0 +1,1 @@
+Idealab proof of concept with Spring Boot and Openshift
