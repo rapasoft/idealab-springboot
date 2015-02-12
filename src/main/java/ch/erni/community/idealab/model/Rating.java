@@ -1,5 +1,7 @@
 package ch.erni.community.idealab.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -8,6 +10,7 @@ import javax.validation.constraints.Min;
  * @author rap
  */
 @Entity
+@Data
 public class Rating {
 
 	@Id

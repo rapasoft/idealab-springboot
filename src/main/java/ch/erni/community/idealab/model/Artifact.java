@@ -1,5 +1,7 @@
 package ch.erni.community.idealab.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -7,6 +9,7 @@ import java.util.Date;
  * @author rap
  */
 @Entity
+@Data
 public class Artifact {
 
 	@Id
