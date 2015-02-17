@@ -1,0 +1,8 @@
+<dataset>
+	<ROLE id="1" name="ROLE_ADMIN"/>
+	<ROLE id="2" name="ROLE_USER"/>
+	<USER email="admin" name="Admin USER" password="" />
+	<USER email="user" name="Basic F. USER" password="" />
+	<USER_ROLE users_email="admin" roles_id="1" />
+	<USER_ROLE users_email="user" roles_id="2" />
+</dataset>
