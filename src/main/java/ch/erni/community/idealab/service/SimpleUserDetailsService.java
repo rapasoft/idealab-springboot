@@ -22,7 +22,7 @@ public class SimpleUserDetailsService implements UserDetailsService {
 		User user = userRepository.findOneByEmail(email);
 
 		if (user == null) {
-			return User.GUEST;
+			throw new UsernameNotFoundException("Could not find user with email: " + email);
 		}
 
 		return user;

@@ -20,8 +20,6 @@ import java.util.List;
 @Setter
 public class User implements UserDetails {
 
-	public static final User GUEST = new GuestUser();
-
 	@Id
 	private String email;
 
