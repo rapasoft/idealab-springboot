@@ -1,9 +1,0 @@
-<dataset>
-	<ROLE id="1" name="ROLE_ADMIN"/>
-	<ROLE id="2" name="ROLE_USER"/>
-	<USER email="admin" name="Admin USER" password="" />
-	<USER email="user" name="Basic F. USER" password="" />
-	<USER_ROLE users_email="admin" roles_id="1" />
-	<USER_ROLE users_email="user" roles_id="2" />
-	<IDEA id="1" name="Take over the world" description="Go on and take it!" created="2015-01-01 09:00:00" user_id="user"/>
-</dataset>

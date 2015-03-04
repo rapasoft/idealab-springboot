@@ -1,46 +1,42 @@
 package ch.erni.community.idealab.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.hibernate.validator.constraints.Email;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author rap
  */
-@Entity
 @Getter
 @Setter
+@Document
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Idea {
 
 	@Id
-	@GeneratedValue
 	private Integer id;
 
+	@Size(min = 6)
 	private String name;
 
+	@Size(min = 15)
 	private String description;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@CreatedDate
 	private Date created;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@LastModifiedDate
 	private Date modified;
 
-	@ManyToOne
-	@JoinColumn(name = "USER_ID")
-	private User owner;
-
-	@OneToOne
-	private State state;
-
-	@OneToMany
-	@JoinColumn(name = "IDEA_ID")
-	private List<Rating> ratings;
-
-	@OneToOne
-	private Artifact artifact;
+	@Email
+	private String ownerEmail;
 
 }

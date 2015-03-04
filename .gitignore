@@ -128,3 +128,5 @@ jboss/server/minimal/work/**/*
 # deployed package files #
 
 *.DEPLOYED
+
+src/main/resources/security.properties

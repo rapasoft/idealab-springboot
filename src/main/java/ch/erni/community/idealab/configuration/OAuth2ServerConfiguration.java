@@ -27,6 +27,10 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration
 public class OAuth2ServerConfiguration {
 
+	public static final String CLIENT_SECRET = "3RN1_1D34L4B";
+
+	public static final String CLIENT_ID = "idealab";
+
 	private static final String RESOURCE_ID = "/";
 
 	@Configuration
@@ -46,9 +50,7 @@ public class OAuth2ServerConfiguration {
 					.csrf().disable()
 
 					.authorizeRequests()
-					.antMatchers("/roles/**").hasRole(SecurityRoles.ADMIN.name())
-					.antMatchers("/users/**").hasRole(SecurityRoles.ADMIN.name())
-					.antMatchers("/ideas/**").hasRole(SecurityRoles.USER.name())
+					.antMatchers("/ideas/**").hasAuthority(SecurityRoles.USER.asSpringRole())
 					.anyRequest().permitAll()
 
 					.and()
@@ -88,12 +90,12 @@ public class OAuth2ServerConfiguration {
 		public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 			clients
 					.inMemory()
-					.withClient("clientapp")
+					.withClient(CLIENT_ID)
 					.authorizedGrantTypes("password", "refresh_token")
-					.authorities(SecurityRoles.USER.name())
+					.authorities(SecurityRoles.USER.asSpringRole())
 					.scopes("read", "write")
 					.resourceIds(RESOURCE_ID)
-					.secret("123456");
+					.secret(CLIENT_SECRET);
 		}
 
 		@Bean

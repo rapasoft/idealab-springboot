@@ -1,6 +1,6 @@
 package ch.erni.community.idealab.configuration;
 
-import ch.erni.community.idealab.service.SimpleUserDetailsService;
+import ch.erni.community.idealab.security.ERNILdapAuthenticationProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,17 +21,17 @@ import org.springframework.security.config.annotation.web.servlet.configuration.
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	private SimpleUserDetailsService userDetailsService;
+	private ERNILdapAuthenticationProvider erniLdapAuthenticationProvider;
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userDetailsService);
+		auth.authenticationProvider(erniLdapAuthenticationProvider);
 	}
 
 	@Override
 	@Bean
 	public AuthenticationManager authenticationManagerBean() throws Exception {
-		return super.authenticationManagerBean();
+		return this.authenticationManager();
 	}
 
 }

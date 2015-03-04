@@ -1,11 +1,18 @@
 Idealab proof of concept with Spring Boot and Openshift. 
 
+#### Preconditions
+You should have:
+- Latest Maven
+- Latest Java 8
+- MongoDB installed and running
+- no other application running at port 8080 ;-)
+
 #### Run it
-To build the application you can execute in command line this statement:  
+To build the application you can execute this command:  
 
 ```mvn clean package -DskipTests=true dbunit:operation spring-boot:run```
 
-This will clean the project (delete target directory if exists), create H2 file database, populate it with some test data and run the Spring Boot application using embedded Tomcat.
+This will clean the project (delete target directory if exists), and run the Spring Boot application using embedded Tomcat. If MongoDB is running correctly Spring Boot should be able to *magically* connect to it.
 
 #### Use it
 If everything works fine then you should be able to navigate to ```http:\\localhost:8080\``` where you'll get the list of endpoints as a JSON Object. 
@@ -80,5 +87,5 @@ After some period of time the access_token should expire, so you can get renewal
 
 #### Tweak it
 - this project uses Project Lombok library, so you should have IDE that supports it (Eclipse, IntelliJ IDEA). More information can be found here: http://projectlombok.org/. 
-- the Java version is 7, but version 8 is supported too (however not by OpenShift)
-- the application can be deployed to OpenShift (see ```.openshift``` directory)
+- the Java version is 8
+- ~~the application can be deployed to OpenShift~~. Well not anymore. This is a TODO thing right now, since Java 8 was introduced into project. It will need some hacking. Also the Mongo DB connection was not tested yet.

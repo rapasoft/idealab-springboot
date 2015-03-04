@@ -5,7 +5,7 @@ package ch.erni.community.idealab.enums;
  */
 public enum SecurityRoles {
 
-	USER, ADMIN, AUTHOR, RESPONSIBLE;
+	USER;
 
 	/**
 	 * Mmm, spring rolls...
