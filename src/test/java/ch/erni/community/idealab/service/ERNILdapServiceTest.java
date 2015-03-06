@@ -26,7 +26,15 @@ public class ERNILdapServiceTest {
 
 		assertEquals("Pavol Rajzák", rap.getName());
 		assertEquals("pavol.rajzak@erni.sk", rap.getEmail().toLowerCase());
+		assertEquals(true, rap.isAccountNonExpired());
+		assertEquals(true, rap.isAccountNonLocked());
+		assertEquals(true, rap.isCredentialsNonExpired());
+		assertEquals(true, rap.isEnabled());
 		assertEquals(Role.GRANTED_AUTHORITIES, rap.getAuthorities());
+
+		rap.getAuthorities().forEach(role -> {
+			assertNotNull(role.getAuthority());
+		});
 	}
 
 	@Test

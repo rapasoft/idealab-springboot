@@ -38,7 +38,6 @@ public class MongoDBDataGenerator {
 				.description("The plan to take over the world. Step 1: Say pretty please. Step 2: If step 1 does not work use weapons.")
 				.created(new Date(System.currentTimeMillis()))
 				.ownerEmail("user@erni.sk")
-				.id(1)
 				.build();
 
 		mongoTemplate.save(user);

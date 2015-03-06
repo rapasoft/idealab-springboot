@@ -2,8 +2,6 @@ package ch.erni.community.idealab.model;
 
 import ch.erni.community.idealab.enums.SecurityRoles;
 import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
@@ -14,8 +12,6 @@ import java.util.List;
 /**
  * @author rap
  */
-@Getter
-@Setter
 @Document
 @Builder
 public class Role implements GrantedAuthority {

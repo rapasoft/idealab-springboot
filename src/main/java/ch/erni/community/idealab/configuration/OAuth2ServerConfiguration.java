@@ -47,16 +47,9 @@ public class OAuth2ServerConfiguration {
 		@Override
 		public void configure(HttpSecurity http) throws Exception {
 			http
-					.csrf().disable()
-
 					.authorizeRequests()
 					.antMatchers("/ideas/**").hasAuthority(SecurityRoles.USER.asSpringRole())
 					.anyRequest().permitAll()
-
-					.and()
-					.formLogin()
-					.loginPage("/login")
-					.permitAll()
 
 					.and()
 					.logout()

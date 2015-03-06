@@ -5,10 +5,13 @@ import org.hibernate.validator.constraints.Email;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author rap
@@ -22,7 +25,7 @@ import java.util.Date;
 public class Idea {
 
 	@Id
-	private Integer id;
+	private String id;
 
 	@Size(min = 6)
 	private String name;
@@ -30,13 +33,18 @@ public class Idea {
 	@Size(min = 15)
 	private String description;
 
+	@Email
+	@Indexed
+	private String ownerEmail;
+
 	@CreatedDate
 	private Date created;
 
 	@LastModifiedDate
 	private Date modified;
 
-	@Email
-	private String ownerEmail;
+	private Set<Vote> votes = new HashSet<>();
+
+	private Set<Comment> comments = new HashSet<>();
 
 }

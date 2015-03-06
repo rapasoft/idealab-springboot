@@ -2,7 +2,6 @@ package ch.erni.community.idealab.model;
 
 import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
@@ -16,16 +15,16 @@ import java.util.List;
 /**
  * @author rap
  */
-@Getter
-@Setter
 @Document
 @Builder
 public class User implements UserDetails {
 
 	@Id
+	@Getter
 	private String email;
 
 	@NotNull
+	@Getter
 	private String name;
 
 	@NotNull

@@ -63,7 +63,6 @@ public class CreateIdeaTest {
 
 	private String testIdea() throws JsonProcessingException {
 		Idea idea = Idea.builder()
-				.id(2)
 				.name("IT Idea")
 				.description("Some description. It must be something bigger than 15 characters.")
 				.ownerEmail("pavol.rajzak@erni.sk").build();

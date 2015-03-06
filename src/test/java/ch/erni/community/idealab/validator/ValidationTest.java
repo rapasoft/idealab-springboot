@@ -30,7 +30,7 @@ public class ValidationTest {
 
 	@Test
 	public void shouldThrowValidationException() {
-		Idea user = Idea.builder().id(1).name("short").description("even shorter").build();
+		Idea user = Idea.builder().name("short").description("even shorter").build();
 
 		try {
 			mongoTemplate.save(user);
