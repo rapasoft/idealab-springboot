@@ -6,7 +6,6 @@ You should have:
 - Latest Java 8
 - MongoDB installed and running
 - no other application running at port 8080 ;-)
-- ...and at last, you **must be within ERNI network**.
 
 #### Run it
 To build the application you can execute this command:  
